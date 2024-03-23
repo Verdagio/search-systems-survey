@@ -9,7 +9,6 @@ import math
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 from transformers import AutoTokenizer, AutoModel
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -259,38 +258,4 @@ if __name__ == "__main__":
         with open(f'judge/{method}_judge.txt', 'w') as f:
             subprocess.run(['trec_eval', 'data/cranqrel.trec.txt', f'results/{method}_res.txt'], stdout=f, shell=True)
 
-    
-    # methods = ['Language Model', 'BM25', 'Vector Space Model']
-    # map_values = [0.0028, 0.0030, 0.0024]  # Mean Average Precision
-    # Rprec_values = [0.0054, 0.0062, 0.0053]  # R-precision
-    # P_5_values = [0.0066, 0.0013, 0.0053]  # Precision at 5 documents
-    # P_1000_values = [0.0003, 0.0005, 0.0003]  # Precision at 1000 documents
-
-    # # Bar width 
-    # barWidth = 0.2
-
-    # # Set position of bar on X axis
-    # r1 = range(len(methods))
-    # r2 = [x + barWidth for x in r1]
-    # r3 = [x + barWidth for x in r2]
-    # r4 = [x + barWidth for x in r3]
-
-    # # Make the plot
-    # plt.figure(figsize=(10, 8))
-
-    # plt.bar(r1, map_values, color='b', width=barWidth, edgecolor='grey', label='MAP')
-    # plt.bar(r2, Rprec_values, color='r', width=barWidth, edgecolor='grey', label='Rprec')
-    # plt.bar(r3, P_5_values, color='g', width=barWidth, edgecolor='grey', label='P@5')
-    # plt.bar(r4, P_1000_values, color='y', width=barWidth, edgecolor='grey', label='P@1000')
-
-    # # Add xticks on the middle of the group bars
-    # plt.xlabel('Method', fontweight='bold', fontsize=15)
-    # plt.xticks([r + barWidth for r in range(len(methods))], methods, rotation=45)
-    # plt.ylabel('Score', fontweight='bold', fontsize=15)
-    # plt.title('Comparison of Retrieval Methods', fontweight='bold', fontsize=16)
-
-    # # Create legend & Show graphic
-    # plt.legend()
-    # plt.tight_layout()
-    # plt.show()
     print('Done')

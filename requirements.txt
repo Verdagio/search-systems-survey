@@ -1,0 +1,6 @@
+torch
+nltk
+pandas
+numpy
+transformers
+scikit-learn
